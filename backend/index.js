@@ -24,7 +24,6 @@ io.on("connection", (socket) => {
   socket.on("markdown", (markdownText) => {
     try {
         const html = marked.parse(markdownText);
-        console.log(markdownText);
         socket.emit("html", html);
       } catch (error) {
         socket.emit("error", "Error converting markdown");
